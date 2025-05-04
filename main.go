@@ -1,7 +1,7 @@
 package main
 
 import (
-
+	"os"
 	"html/template"
     "log"
     "net/http"
@@ -22,6 +22,11 @@ var messages = make(map[string][]Message)
 
 func main() {
 	r := gin.Default()
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
 
     fs := http.FileServer(http.Dir("static"))
     http.Handle("/static/", http.StripPrefix("/static/", fs))
