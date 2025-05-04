@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go.ex</title>
+    <link rel="stylesheet" href="../static/styles/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="forms-container">
+            <div class="form-section send-section">
+                <h1>ส่งข้อความ</h1>
+                <div class="uuid-display">
+                    <p>UUID ของคุณ: <span id="userUuid"></span></p>
+                    <div class="uuid-buttons">
+                        <button class="copy-btn" onclick="copyUuid()">คัดลอก UUID</button>
+                        <button class="change-uuid-btn" onclick="changeUuid()">เปลี่ยน UUID</button>
+                    </div>
+                </div>
+                <div class="message-form">
+                    <input type="text" id="receiverUuid" placeholder="กรอก UUID ของผู้รับ">
+                    <textarea id="messageInput" placeholder="เขียนข้อความของคุณที่นี่..."></textarea>
+                    <button onclick="sendMessage()">ส่งข้อความ</button>
+                </div>
+            </div>
+            <div class="form-section receive-section">
+                <h1>ข้อความที่ได้รับ</h1>
+                <div class="messages-container">
+                    <div id="messagesList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Go.ex. and Rxea. All rights reserved.</p>
+    </footer>
+    <script src="../static/script/script.js"></script>
+</body>
+</html> 
