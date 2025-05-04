@@ -3,8 +3,8 @@ package main
 import (
 	"os"
 	"html/template"
-    "log"
-    "net/http"
+    	"log"
+    	"net/http"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -25,7 +25,14 @@ func main() {
 
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "8080"
+		port = "8080" // fallback เวลา run local
+	}
+
+	http.HandleFunc("/", handler)
+	fmt.Println("Server running on port " + port)
+	err := http.ListenAndServe(":"+port, nil)
+	if err != nil {
+		fmt.Println("Error: ", err)
 	}
 
     fs := http.FileServer(http.Dir("static"))
